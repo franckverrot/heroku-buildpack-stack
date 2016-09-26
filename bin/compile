@@ -28,11 +28,10 @@ fi
 bin="$build/.vendor/stack/bin"
 mkdir -p "$bin"
 export PATH="$bin:$PATH"
-
+export VERSION=1.2.0
 if [ ! "$(which stack)" ]; then
-    version=0.1.6.0
-    slug="stack-$version-linux-x86_64"
-    url="https://github.com/commercialhaskell/stack/releases/download/v$version/$slug.tar.gz"
+    slug="stack-$VERSION-linux-x86_64"
+    url="https://github.com/commercialhaskell/stack/releases/download/v$VERSION/$slug.tar.gz"
     if [ ! -x "$cache/$slug/stack" ]; then
         echo '-----> Downloading stack'
         curl -sL "$url" | tar -xzC "$cache"
